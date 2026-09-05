@@ -99,6 +99,10 @@ public Properties p;
 			switch(br.toLowerCase())
 			{
 			case "chrome" : 
+					System.out.println(">>> Starting Chrome in Jenkins Headless mode");
+					System.out.println("Execution Environment: " + p.getProperty("execution_env"));
+System.out.println("Browser: " + br);
+System.out.println("OS: " + os);
 				ChromeOptions options = new ChromeOptions();
 				options.addArguments("--headless");
 				options.addArguments("--no-sandbox");
