@@ -13,13 +13,14 @@ jobs:
     steps:
 
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           java-version: '17'
           distribution: 'temurin'
+          cache: maven
 
-      - name: Run Maven tests
-        run: mvn clean test
+      - name: Run Selenium Tests
+        run: mvn clean test -Dheadless=true
