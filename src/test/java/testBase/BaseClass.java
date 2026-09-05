@@ -100,6 +100,9 @@ public Properties p;
 			{
 			case "chrome" : 
 				ChromeOptions options = new ChromeOptions();
+				options.addArguments("--headless");
+				options.addArguments("--no-sandbox");
+				options.addArguments("--disable-dev-shm-usage");
 				driver=new ChromeDriver(options); 
 				break;
 			case "edge" : driver=new EdgeDriver(); break;
