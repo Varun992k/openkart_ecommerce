@@ -45,7 +45,10 @@ public Properties p;
 		p.load(file);
 				
 		logger=LogManager.getLogger(this.getClass());  //lOG4J2
-				
+				System.out.println(">>> Starting Chrome in Jenkins Headless mode");
+					System.out.println("Execution Environment: " + p.getProperty("execution_env"));
+System.out.println("Browser: " + br);
+System.out.println("OS: " + os);
 		if(p.getProperty("execution_env").equalsIgnoreCase("remote"))
 		{
 			DesiredCapabilities capabilities=new DesiredCapabilities();
