@@ -34,7 +34,7 @@ public static WebDriver driver;
 public Logger logger;  //Log4j
 public Properties p;
 	
-	@BeforeClass(groups= {"Sanity","Regression","Master"})
+	@BeforeClass(groups= {"Sanity","Regression","Master", "Retesting"})
 	@Parameters({"os","browser"})
 	public void setup(String os, String br) throws IOException
 	{
@@ -79,7 +79,6 @@ public Properties p;
 			
 			driver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
 		}
-		
 				
 		if(p.getProperty("execution_env").equalsIgnoreCase("local"))
 		{
@@ -92,7 +91,6 @@ public Properties p;
 			default : System.out.println("Invalid browser name.."); return;
 			}
 		}
-		
 			
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -101,7 +99,7 @@ public Properties p;
 		driver.manage().window().maximize();
 	}
 	
-	@AfterClass(groups= {"Sanity","Regression","Master"})
+	@AfterClass(groups= {"Sanity","Regression","Master", "Retesting"})
 	public void tearDown()
 	{
 		driver.quit();
